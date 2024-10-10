@@ -3,10 +3,10 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "geogapfiller"
+name = "cropphenology"
 version = "0.0.1"
 readme = "README.md"
-description = "Method used to gap-filling data in geospatial images."
+description = "Repository to process HLS images and retrieve phenological metrics."
 keywords = ["GIS", "remote sensing"]
 requires-python = ">=3.9"
 dependencies = [
@@ -16,17 +16,19 @@ dependencies = [
     "matplotlib",
     "rasterio",
     "pyproj",
-    "sklearn",
+    "scikit-learn",
     "joblib",
-    "collections",
     "lightgbm",
+    "shapely",
+    "geogapfiller@git+https://github.com/uvaires/geogapfiller"
+
 
 
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]  # list of folders that contain the packages (["."] by default)
-include = ["geogapfiller*"]  # package names should match these glob patterns (["*"] by default)
+include = ["cropphenology*"]  # package names should match these glob patterns (["*"] by default)
 #exclude = []  # exclude packages matching these glob patterns (empty by default)
 
 # Optional. Used to configure black (autoformatter)
