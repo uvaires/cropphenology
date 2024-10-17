@@ -20,7 +20,8 @@ dependencies = [
     "joblib",
     "lightgbm",
     "shapely",
-    "geogapfiller@git+https://github.com/uvaires/geogapfiller"
+    "matplotlib",
+    "geogapfiller@git+https://github.com/uvaires/geogapfiller",
 
 
 

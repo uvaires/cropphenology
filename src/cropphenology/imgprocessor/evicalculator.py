@@ -24,8 +24,7 @@ def evi(base_dir, station_name) -> None:
         convert_date = datetime.strptime(img_date, '%Y%m%d')
         year = convert_date.year
         year = str(year)
-        tile_id = os.path.basename(hls_img).split('_')[2]
-        basedir_indices = os.path.join(base_dir,'data_processed', station_name, year, 'spectral_index', 'evi')
+        basedir_indices = os.path.join(base_dir,'data_processed', station_name, year, 'spectral_index')
         dir_output_date = os.path.join(basedir_indices)
         os.makedirs(dir_output_date, exist_ok=True)
 

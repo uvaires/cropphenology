@@ -5,7 +5,6 @@ from decimal import Decimal
 from shapely.geometry import Point
 import geopandas as gpd
 import matplotlib.pyplot as plt
-from pyproj import Proj, transform
 from datetime import datetime
 import pandas as pd
 from geogapfiller import gapfiller
