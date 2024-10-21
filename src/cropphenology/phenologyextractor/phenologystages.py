@@ -14,7 +14,7 @@ def extract_phenological_dates(data_path: str, base_dir: str, station_name: str,
                                interval=1):
     """
     Extract the phenological stages from the vegetation index time series
-    :param data_path: time series data path
+    :param data_path: time series data
     :param base_dir: output directory
     :param station_name: PhenoCam station name
     :param vegetation_index: column name of the vegetation index
@@ -22,11 +22,16 @@ def extract_phenological_dates(data_path: str, base_dir: str, station_name: str,
     :param interval: interval dates in the time series data
     :return: phenological stages
     """
-    # Read the data from the specified Excel file
-    df = pd.read_csv(data_path)
+    # Read the data
+    if isinstance(data_path, pd.DataFrame):
+        # If the data is already a DataFrame, just return it
+        df = data_path
+    elif isinstance(data_path, str) and os.path.exists(data_path):
+        # If the data is a valid file path, read it using pandas
+        df = pd.read_csv(data_path)
 
     # Convert the 'date' column to datetime format for easier time-based operations
-    df['date'] = pd.to_datetime(df['DATE'])
+    df['date'] = pd.to_datetime(df['date'])
 
     # Set the variable for the vegetation index (e.g., GCC, NDVI)
     vegetation_index = vegetation_index
