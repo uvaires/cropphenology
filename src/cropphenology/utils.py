@@ -3,6 +3,42 @@ import numpy as np
 import rasterio
 import glob
 from datetime import datetime
+import pandas as pd
+
+
+# Convert the dates format YYYYMMDD to DOY (Day of Year)
+def _convert_date_to_doy(date):
+    # Check if the date is NaN or None
+    if pd.isna(date):
+        return np.nan  # Return NaN if the date is missing
+
+    # Convert the date assuming it's in YYYYMMDD format
+    try:
+        year = int(str(date)[:4])
+        month = int(str(date)[4:6])
+        day = int(str(date)[6:8])
+        doy = pd.to_datetime(f'{year}-{month}-{day}').timetuple().tm_yday
+        return doy
+    except (ValueError, TypeError):
+        return np.nan
+
+
+def _calculate_metrics(observed, predicted):
+    observed = np.array(observed)
+    predicted = np.array(predicted)
+
+    observed_non_nan = observed[~np.isnan(observed) & ~np.isnan(predicted)]
+    predicted_non_nan = predicted[~np.isnan(observed) & ~np.isnan(predicted)]
+
+    mse = np.nanmean((observed_non_nan - predicted_non_nan) ** 2)
+    rmse = np.sqrt(mse)
+    mae = np.nanmean(np.abs(observed_non_nan - predicted_non_nan))
+    bias = np.nanmean(predicted_non_nan - observed_non_nan)
+    r = np.corrcoef(observed_non_nan, predicted_non_nan)[0, 1]
+    r2 = r ** 2
+
+    return rmse, mae, r2, bias
+
 
 def _stack_raster(img_list):
     raster_layers = []
