@@ -142,7 +142,7 @@ def plot_techniques_val(img_dates: list, evi_obs_values: list, evi_median_values
     plt.tight_layout()
 
     # Create directories for saving plot and metrics
-    save_plot = os.path.join(base_dir, 'data_processed', station_name, year, 'validation_plots')
+    save_plot = os.path.join(base_dir, 'data_processed', station_name, year, 'plots')
     os.makedirs(save_plot, exist_ok=True)
     plotout_dir = os.path.join(save_plot, 'evi_filled_pred_obs.png')
 
