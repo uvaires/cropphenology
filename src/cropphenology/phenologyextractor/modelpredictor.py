@@ -9,6 +9,9 @@ from sklearn.svm import SVR
 from cropphenology import utils
 import os
 import pickle
+import warnings
+from sklearn.exceptions import ConvergenceWarning
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 def model_predictor(phenology_data: str, base_dir: str, station_name: str, current_year='2023', max_iteration=10000, tol=1e-4,
                     alpha_range=(-4, 1, 6), l1_ratio_range=(0.1, 0.9, 9), C_range=(-2, 2, 5), epsilon_range=(0.1, 1.0, 10)):
@@ -26,6 +29,7 @@ def model_predictor(phenology_data: str, base_dir: str, station_name: str, curre
     :param epsilon_range: range of epsilon for SVM
     :return: NONE
     """
+    pd.options.mode.chained_assignment = None
 
     df = pd.read_csv(phenology_data)
 
