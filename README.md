@@ -1,16 +1,12 @@
-# geogapfiller
-This repository implements four gap-filling methods to reconstruct geospatial data and predict synthetic images. The methods applied are Polynomial, Median, Harmonic, and LightGBM. Gap-filling is crucial for reconstructing data, as clouds, shadows, and other atmospheric conditions often affect the quality of the images. Description of the methods:
+# Cropphenology
 
-- Median approach: The median is often favored over other statistical measures, such as the mean, because it is less affected by outliers that may result from atmospheric disturbances or sensor errors. This approach selects the median value from the cloud-free pixels in the time series, offering a straightforward solution. However, it does not account for the broader trends or seasonal variations in the data, which may limit its effectiveness in capturing long-term patterns.
+This repository implements an operational framework for reconstructing daily EVI image time series from Harmonized Landsat Sentinel-2 images using four gap-filling methods to retrieve crop phenological stages, using the asymmetric double sigmoid. The phenological stages were then used to estimate the sowing and emergence dates of corn and soybeans, validated with field data from PhenoCam observations.
 
-- Polynomial approach: The polynomial regression gap-filling approach models the relationship between a dependent variable and one or more independent variables. Higher-degree polynomials can represent more complex relationships, allowing for better data reconstruction. However, as the polynomial degree increases, the model becomes harder to interpret and requires more processing time.
-
-- Harmonic approach: The harmonic gap-filling approach leverages a Fourier-like series, using a combination of sine and cosine functions to estimate missing data. This method is widely applied in remote sensing because of its strength in capturing periodic and seasonal variations. Harmonic models tend to excel when data gaps are evenly distributed, as they can smoothly interpolate across time. However, when gaps are uneven or concentrated in specific periods, the model’s accuracy may decline, resulting in less reliable gap-filling.
-
-- LightGBM approach: The LightGBM gap-filling approach utilizes a tree-based learning algorithm to model relationships in the data. Unlike harmonic models, which assume periodicity, LightGBM does not rely on any inherent patterns and instead learns from the provided training data. It is known for its efficiency and produces results comparable to the Gradient Boosting Machine.
+The figure below illustrates the results of the polynomial gap-filling technique to reconstruct the Enhanced Vegetation Index (EVI).
   
 ![image](https://github.com/user-attachments/assets/62a3aef8-4110-4a12-824c-a1233b0f7dfd)
 
+A good correlation was observed between HLS data and PhenoCam data, as presented below:
 
 
 
@@ -26,5 +22,5 @@ pip install -e .
 ```
 You can also install the package directly from GitHub using the following command:
 ```
-pip install git+https://github.com/uvaires/geogapfiller
+pip install git+https://github.com/uvaires/cropphenology
 ```
