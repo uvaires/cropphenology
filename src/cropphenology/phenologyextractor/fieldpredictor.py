@@ -8,8 +8,6 @@ import matplotlib.pyplot as plt
 import scipy.optimize as opt
 import math
 from sklearn.exceptions import ConvergenceWarning
-import geopandas as gpd
-import joblib
 from joblib import Parallel, delayed
 from shapely.errors import ShapelyDeprecationWarning
 import warnings

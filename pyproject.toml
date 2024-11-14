@@ -19,8 +19,8 @@ dependencies = [
     "scikit-learn",
     "joblib",
     "lightgbm",
-    "shapely",
     "matplotlib",
+     "scipy",
     "geogapfiller@git+https://github.com/uvaires/geogapfiller",
 
 
