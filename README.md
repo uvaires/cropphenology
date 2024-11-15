@@ -6,13 +6,16 @@ The figure below illustrates the results of the polynomial gap-filling technique
   
 ![image](https://github.com/user-attachments/assets/62a3aef8-4110-4a12-824c-a1233b0f7dfd)
 
-A good correlation was observed between HLS data and PhenoCam data, as presented below:
+A good correlation was observed between daily EVI derived from HLS data and PhenoCam data, as presented below: Relation of green chromatic coordinate (GCC) retrieved from PhenoCam and original and predicted EVI derived from HLS images.
+![compressed2](https://github.com/user-attachments/assets/6f6f7d33-2509-4d80-8ac2-4de8c4d3c750)
 
+Field predictions show field variability of sowing and emergence dates of corn and soybeans: Predictions of sowing and emerge dates using the elastic net regression model for field-based in IOWA. 
+![image](https://github.com/user-attachments/assets/4ee09f39-99b9-4448-87d8-36bd11441acd)
 
 
 
 ## Dependencies management and package installation
-The following command can be used to recreate the conda enviroment with all the dependencies needed to run the code in this repository. The package is also installed in development mode. This command should be run from the root of the repository.
+The following command can be used to recreate the conda enviroment with all the dependencies needed to run the code in this repository. This command should be run from the root of the repository.
 ```
 conda env create -f environment.yml
 ```
