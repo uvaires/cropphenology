@@ -1,6 +1,6 @@
 # Cropphenology
 
-This repository implements an operational framework for reconstructing daily EVI image time series from Harmonized Landsat Sentinel-2 images using four gap-filling methods to retrieve crop phenological stages, using the asymmetric double sigmoid. The phenological stages were then used to estimate the sowing and emergence dates of corn and soybeans, validated with field data from PhenoCam observations.
+This repository implements an operational framework for reconstructing daily EVI image time series from Harmonized Landsat Sentinel-2 images using four gap-filling methods to retrieve crop phenological stages, using the asymmetric double sigmoid. The phenological stages were then used to estimate the sowing and emergence dates of corn and soybeans, validated with field data from PhenoCam observations. For a complete understanding of this work, please check the [paper](https://spj.science.org/doi/10.34133/remotesensing.0878).
 
 The figure below illustrates the results of the polynomial gap-filling technique to reconstruct the Enhanced Vegetation Index (EVI).
   
