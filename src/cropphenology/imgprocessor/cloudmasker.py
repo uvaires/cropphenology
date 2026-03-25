@@ -1,3 +1,6 @@
+# © Mississippi State University 2026
+# Licensed under the BSD License. See LICENSE file for details.
+
 import glob
 import os
 import rasterio

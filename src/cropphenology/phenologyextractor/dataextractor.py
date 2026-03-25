@@ -1,3 +1,6 @@
+# © Mississippi State University 2026
+# Licensed under the BSD License. See LICENSE file for details.
+
 import geopandas as gpd
 import pandas as pd
 import glob
