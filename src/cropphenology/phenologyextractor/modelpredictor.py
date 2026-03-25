@@ -16,7 +16,7 @@ import warnings
 from sklearn.exceptions import ConvergenceWarning
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
-def model_predictor(phenology_data: str, base_dir: str, station_name: str, current_year='2023', max_iteration=10000, tol=1e-4,
+def model_predictor(phenology_data: str, base_dir: str, station_name: str, seletec_columns: list, dict_explanatory_variables:dict, dict_response_variables:dict, current_year='2023', max_iteration=10000, tol=1e-4,
                     alpha_range=(-4, 1, 6), l1_ratio_range=(0.1, 0.9, 9), C_range=(-2, 2, 5), epsilon_range=(0.1, 1.0, 10)):
     """
     Function to predict the phenology dates using different models and hyperparameters.
@@ -36,23 +36,10 @@ def model_predictor(phenology_data: str, base_dir: str, station_name: str, curre
 
     df = pd.read_csv(phenology_data)
 
-    dict_explanatory_variables = {
-        'D1': 'D1 HLS',
-        'Di': 'Di HLS',
-        'D2': 'D2 HLS',
-        'D3': 'D3 HLS',
-        'Dd': 'Dd HLS',
-        'D4': 'D4 HLS'
-    }
-
-    dict_response_variables = {
-        'Sowing': 'Sowing Phenocam',
-        'Emergence': 'Emergence Phenocam'
-    }
 
     # Columns to select
-    columns_to_select = ['Sowing Phenocam', 'Emergence Phenocam', 'D1 HLS', 'Di HLS', 'D2 HLS', 'D3 HLS', 'Dd HLS', 'D4 HLS']
-    df_select = df[columns_to_select]
+
+    df_select = df[seletec_columns]
 
     # Convert dates to day of year (DOY)
     for column in df_select.columns:
